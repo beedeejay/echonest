@@ -75,6 +75,6 @@ class Song extends CI_Controller {
         $data["curl_result"] = $result;
         $data["query_info"] = $query_info;
 
-        $this->load->view('home', $data);
+        $this->load->view('song', $data);
     }
 }
