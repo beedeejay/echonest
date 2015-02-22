@@ -7,10 +7,7 @@ class Song extends CI_Controller {
         $this->load->view('song');
     }
 	
-	function __construct() {
-		$apiKey = "I6IXY87XH7YGDMEWO";
-	}
-	
+	public $apiKey = "I6IXY87XH7YGDMEWO";
 
     public function searchSong()
     {
@@ -36,12 +33,12 @@ class Song extends CI_Controller {
 		// Construct request string
 		$title = str_replace(' ', '%20', $title);
 		$artist = str_replace(' ', '%20', $artist);
-		$request_str = 'http://developer.echonest.com/api/v4/song/search?api_key='.$apiKey.'&format=json';
+		$request_str = 'http://developer.echonest.com/api/v4/song/search?api_key='. $this->apiKey .'&format=json';
 		
-		if (!is_null($artist)) $request_str = $request_str . '&artist=' . $artist;
-		if (!is_null($title)) $request_str = $request_str . '&title=' . $title;
+		if (!is_null($artist) && $artist!='') $request_str = $request_str . '&artist=' . $artist;
+		if (!is_null($title) && $title!='') $request_str = $request_str . '&title=' . $title;
 		
-		if ($audio_summary) $request_str = $request_str . '&bucket=' . $title;
+		if ($audio_summary) $request_str = $request_str . '&bucket=audio_summary';
 		if ($artist_discovery) $request_str = $request_str . '&bucket=artist_discovery';
 		if ($artist_discovery_rank) $request_str = $request_str . '&bucket=artist_discovery_rank';
 		if ($artist_familiarity) $request_str = $request_str . '&bucket=artist_familiarity';
@@ -58,7 +55,7 @@ class Song extends CI_Controller {
 		if ($song_type) $request_str = $request_str . '&bucket=song_type';
 		
 
-        $curl = curl_init(request_str);
+        $curl = curl_init($request_str);
 
         // Don't output the result
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
