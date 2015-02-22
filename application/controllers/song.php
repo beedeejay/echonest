@@ -73,7 +73,9 @@ class Song extends CI_Controller {
         // Free up the resources $curl is using
         curl_close($curl);
 
-        $data["curl_result"] = indent($result);
+		$pretty_result = prettyPrint($result);
+		echo($pretty_result);
+        $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
         $this->load->view('song', $data);
