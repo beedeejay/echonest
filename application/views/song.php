@@ -34,6 +34,10 @@
                 <label for="exampleInputPassword1">Song name</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Song name" value="<?php echo set_value('title' ,''); ?>">
             </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Number of results</label>
+                <input type="text" class="form-control" id="results" name="results" placeholder="No of results" value="<?php echo set_value('results' ,'3'); ?>">
+            </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">

@@ -17,6 +17,7 @@ class Song extends CI_Controller {
     {
         $artist = $this->input->post('artist');
         $title = $this->input->post('title');
+		$results = $this->input->post('results');
 		
 		$audio_summary = $this->input->post('audio_summary');
 		$artist_discovery = $this->input->post('artist_discovery');
@@ -41,6 +42,7 @@ class Song extends CI_Controller {
 		
 		if (!is_null($artist) && $artist!='') $request_str = $request_str . '&artist=' . $artist;
 		if (!is_null($title) && $title!='') $request_str = $request_str . '&title=' . $title;
+		if (!is_null($results) && $results!='') $request_str = $request_str . '&results=' . $results;
 		
 		if ($audio_summary) $request_str = $request_str . '&bucket=audio_summary';
 		if ($artist_discovery) $request_str = $request_str . '&bucket=artist_discovery';
@@ -73,8 +75,7 @@ class Song extends CI_Controller {
         // Free up the resources $curl is using
         curl_close($curl);
 
-		$pretty_result = prettyPrint($result);
-		echo($pretty_result);
+		$pretty_result = indent($result);
         $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
