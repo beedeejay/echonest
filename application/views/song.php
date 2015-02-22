@@ -25,7 +25,7 @@
 <body>
 
     <div id="container" style="margin: 100px; background-color: #C0C0C0; padding: 20px;">
-        <form action="<?php echo site_url('home/getinfo'); ?> " role="form" method="post" accept-charset="utf-8">
+        <form action="<?php echo site_url('song/searchSong'); ?> " role="form" method="post" accept-charset="utf-8">
             <div class="form-group">
                 <label for="exampleInputEmail1">Artist name</label>
                 <input type="text" class="form-control" id="artist" name="artist" placeholder="Artist name" value="<?php echo set_value('artist' ,''); ?>" >
