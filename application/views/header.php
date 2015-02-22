@@ -27,8 +27,9 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo site_url('song/searchsong');?>">Song <span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo site_url('song/searchArtist');?>">Artist</a></li>
+            <li class="<?php echo (isset($sal)) ?  $sal : 's'; ?>"><a href="<?php echo site_url('song/searchsong');?>">Song <span class="sr-only">(current)</span></a></li>
+            <li class="<?php echo (isset($aal)) ?  $aal : 's'; ?>"><a href="<?php echo site_url('artist/searchartist');?>">Artist</a></li>
+            <li class="<?php echo (isset($upal)) ?  $upal : 's'; ?>"><a href="<?php echo site_url('userprofile/tasteprofile');?>">Taste Profile</a></li>
         </ul>
     </div>
 </nav>

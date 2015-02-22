@@ -8,10 +8,12 @@ class Artist extends CI_Controller {
 		require_once('application/libraries/json_prettifier.php');
 		$this->apiKey = "I6IXY87XH7YGDMEWO";
 	}
-	
-    public function index() {
-        $this->load->view('artist');
-    }
+
+	public function index($data=null) {
+		$datar['aal'] = 'active';
+		$this->load->view('header',$datar);
+		$this->load->view('artist', $data);
+	}
 	
     public function searchArtist()
     {
@@ -82,6 +84,6 @@ class Artist extends CI_Controller {
         $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
-        $this->load->view('artist', $data);
+		$this->index($data);
     }
 }

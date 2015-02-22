@@ -10,7 +10,8 @@ class Song extends CI_Controller {
 	}
 	
     public function index($data=null) {
-		$this->load->view('header');
+		$datar['sal'] = 'active';
+		$this->load->view('header',$datar);
         $this->load->view('song', $data);
     }
 	
