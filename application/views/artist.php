@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
-    <title>Echonest - Song API</title>
+    <title>Echonest - Artist API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-3.3.2-dist/css/bootstrap.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-3.3.2-dist/css/bootstrap-theme.css');?>">
@@ -25,14 +25,10 @@
 <body>
 
     <div id="container" style="margin: 100px; background-color: #C0C0C0; padding: 20px;">
-        <form action="<?php echo site_url('song/searchSong'); ?> " role="form" method="post" accept-charset="utf-8">
+        <form action="<?php echo site_url('artist/searchArtist'); ?> " role="form" method="post" accept-charset="utf-8">
             <div class="form-group">
                 <label for="exampleInputEmail1">Artist name</label>
                 <input type="text" class="form-control" id="artist" name="artist" placeholder="Artist name" value="<?php echo set_value('artist' ,''); ?>" >
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Song name</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Song name" value="<?php echo set_value('title' ,''); ?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Number of results</label>
@@ -41,44 +37,68 @@
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"  name="audio_summary" id="audio_summary" value="True"  <?php echo set_checkbox('audio_summary', 'True'); ?> />
-                    audio_summary</label>
+                    <input type="checkbox"  name="biographies" id="biographies" value="True"  <?php echo set_checkbox('biographies', 'True'); ?> />
+                    biographies</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"  id="artist_discovery" name="artist_discovery" value="True" <?php echo set_checkbox('artist_discovery', 'True'); ?> />
-                    artist_discovery</label>
+                    <input type="checkbox"  id="blogs" name="blogs" value="True" <?php echo set_checkbox('blogs', 'True'); ?> />
+                    blogs</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"  id="artist_discovery_rank" name="artist_discovery_rank" value="True" <?php echo set_checkbox('artist_discovery_rank', 'True'); ?>>
-                    artist_discovery_rank</label>
+                    <input type="checkbox"  id="discovery" name="discovery" value="True" <?php echo set_checkbox('discovery', 'True'); ?>>
+                    discovery</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="artist_familiarity" name="artist_familiarity"  value="True"<?php echo set_checkbox('artist_familiarity', 'True'); ?>>
-                    artist_familiarity</label>
+                    <input type="checkbox"   id="discovery_rank" name="discovery_rank"  value="True"<?php echo set_checkbox('discovery_rank', 'True'); ?>>
+                    discovery_rank</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox" id="artist_familiarity_rank" name="artist_familiarity_rank" value="True" <?php echo set_checkbox('artist_familiarity_rank', 'True'); ?>>
-                    artist_familiarity_rank</label>
+                    <input type="checkbox" id="doc_counts" name="doc_counts" value="True" <?php echo set_checkbox('doc_counts', 'True'); ?>>
+                    doc_counts</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="artist_hotttnesss" name="artist_hotttnesss" value="True" <?php echo set_checkbox('artist_hotttnesss', 'True'); ?>>
-                    artist_hotttnesss</label>
+                    <input type="checkbox"   id="familiarity" name="familiarity" value="True" <?php echo set_checkbox('familiarity', 'True'); ?>>
+                    familiarity</label>
             </div>
 
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="artist_hotttnesss_rank" name="artist_hotttnesss_rank" value="True" <?php echo set_checkbox('artist_hotttnesss_rank', 'True'); ?> >
-                    artist_hotttnesss_rank</label>
+                    <input type="checkbox"   id="familiarity_rank" name="familiarity_rank" value="True" <?php echo set_checkbox('familiarity_rank', 'True'); ?> >
+                    familiarity_rank</label>
+            </div>
+
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="genre" name="genre" value="True" <?php echo set_checkbox('genre', 'True'); ?>>
+                    genre</label>
+            </div>
+
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="hotttnesss" name="hotttnesss" value="True" <?php echo set_checkbox('hotttnesss', 'True'); ?>>
+                    hotttnesss</label>
+            </div>
+
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="hotttnesss_rank" name="hotttnesss_rank" value="True" <?php echo set_checkbox('hotttnesss_rank', 'True'); ?>>
+                    hotttnesss_rank</label>
+            </div>
+
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="images" name="images" value="True" <?php echo set_checkbox('images', 'True'); ?>>
+                    images</label>
             </div>
 
             <div class="checkbox">
@@ -86,47 +106,41 @@
                     <input type="checkbox"   id="artist_location" name="artist_location" value="True" <?php echo set_checkbox('artist_location', 'True'); ?>>
                     artist_location</label>
             </div>
-
+			
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_currency" name="song_currency" value="True" <?php echo set_checkbox('song_currency', 'True'); ?>>
-                    song_currency</label>
-            </div>
-
-            <div class="checkbox">
-                <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_currency_rank" name="song_currency_rank" value="True" <?php echo set_checkbox('song_currency_rank', 'True'); ?>>
-                    song_currency_rank</label>
-            </div>
-
-            <div class="checkbox">
-                <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_discovery" name="song_discovery" value="True" <?php echo set_checkbox('song_discovery', 'True'); ?>>
-                    song_discovery</label>
-            </div>
-
-            <div class="checkbox">
-                <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_discovery_rank" name="song_discovery_rank" value="True" <?php echo set_checkbox('song_discovery_rank', 'True'); ?>>
-                    song_discovery_rank</label>
+                    <input type="checkbox"   id="news" name="news" value="True" <?php echo set_checkbox('news', 'True'); ?>>
+                    news</label>
             </div>
 			
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_hotttnesss" name="song_hotttnesss" value="True" <?php echo set_checkbox('song_hotttnesss', 'True'); ?>>
-                    song_hotttnesss</label>
+                    <input type="checkbox"   id="reviews" name="reviews" value="True" <?php echo set_checkbox('reviews', 'True'); ?>>
+                    reviews</label>
             </div>
 			
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_hotttnesss_rank" name="song_hotttnesss_rank" value="True" <?php echo set_checkbox('song_hotttnesss_rank', 'True'); ?>>
-                    song_hotttnesss_rank</label>
+                    <input type="checkbox"   id="songs" name="songs" value="True" <?php echo set_checkbox('songs', 'True'); ?>>
+                    songs</label>
             </div>
 			
             <div class="checkbox">
                 <label for="exampleInputPassword1">
-                    <input type="checkbox"   id="song_type" name="song_type" value="True" <?php echo set_checkbox('song_type', 'True'); ?>>
-                    song_type</label>
+                    <input type="checkbox"   id="urls" name="urls" value="True" <?php echo set_checkbox('urls', 'True'); ?>>
+                    urls</label>
+            </div>
+			
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="video" name="video" value="True" <?php echo set_checkbox('video', 'True'); ?>>
+                    video</label>
+            </div>
+			
+            <div class="checkbox">
+                <label for="exampleInputPassword1">
+                    <input type="checkbox"   id="years_active" name="years_active" value="True" <?php echo set_checkbox('years_active', 'True'); ?>>
+                    years_active</label>
             </div>
 			
             <button type="submit" class="btn btn-default">Submit</button>
