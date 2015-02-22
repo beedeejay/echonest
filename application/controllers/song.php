@@ -9,8 +9,9 @@ class Song extends CI_Controller {
 		$this->apiKey = "I6IXY87XH7YGDMEWO";
 	}
 	
-    public function index() {
-        $this->load->view('song');
+    public function index($data=null) {
+		$this->load->view('header');
+        $this->load->view('song', $data);
     }
 	
     public function searchSong()
@@ -79,6 +80,6 @@ class Song extends CI_Controller {
         $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
-        $this->load->view('song', $data);
+        $this->index($data);
     }
 }
