@@ -3,12 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Song extends CI_Controller {
 
+	function __construct() {
+		parent::__construct();
+		require_once('application/libraries/json_prettifier.php');
+		$this->apiKey = "I6IXY87XH7YGDMEWO";
+	}
+	
     public function index() {
         $this->load->view('song');
     }
 	
-	public $apiKey = "I6IXY87XH7YGDMEWO";
-
     public function searchSong()
     {
         $artist = $this->input->post('artist');
@@ -69,7 +73,7 @@ class Song extends CI_Controller {
         // Free up the resources $curl is using
         curl_close($curl);
 
-        $data["curl_result"] = $result;
+        $data["curl_result"] = indent($result);
         $data["query_info"] = $query_info;
 
         $this->load->view('song', $data);

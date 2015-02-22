@@ -1,10 +1,4 @@
-/**
- * Indents a flat JSON string to make it more human-readable.
- *
- * @param string $json The original JSON string to process.
- *
- * @return string Indented version of the original JSON string.
- */
+<?php
 function indent($json) {
 
     $result      = '';
@@ -55,3 +49,4 @@ function indent($json) {
 
     return $result;
 }
+?>
