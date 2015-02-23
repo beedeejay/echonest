@@ -18,58 +18,119 @@ class Userprofile extends CI_Controller {
     /**
      *
      */
-    public function tasteprofile()
+    public function createProfile()
     {
-        $username = $this->input->post('username');
-        $results = $this->input->post('results');
-
-        /*$biographies = $this->input->post('biographies');
-        $blogs = $this->input->post('blogs');
-        $discovery = $this->input->post('discovery');
-        $discovery_rank = $this->input->post('discovery_rank');
-        $doc_counts = $this->input->post('doc_counts');
-        $familiarity = $this->input->post('familiarity');
-        $familiarity_rank = $this->input->post('familiarity_rank');
-        $genre = $this->input->post('genre');
-        $hotttnesss = $this->input->post('hotttnesss');
-        $hotttnesss_rank = $this->input->post('hotttnesss_rank');
-        $images = $this->input->post('images');
-        $artist_location = $this->input->post('artist_location');
-        $news = $this->input->post('news');
-        $reviews = $this->input->post('reviews');
-        $songs = $this->input->post('songs');
-        $urls = $this->input->post('urls');
-        $video = $this->input->post('video');
-        $years_active = $this->input->post('years_active');*/
+        $name = $this->input->post('create_name');
+        $type = $this->input->post('create_type');
 
         // Construct request string
-        $username = str_replace(' ', '%20', $username);
+        $name = str_replace(' ', '%20', $name);
         $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/create?api_key='. $this->apiKey .'&format=json';
 
-        if (!is_null($username) && $username!='') $request_str = $request_str . '&name=' . $username;
-        http://developer.echonest.com/api/v4/tasteprofile/create?api_key=I6IXY87XH7YGDMEWO&format=json&type=artist&name=Alex
+        if (!is_null($name) && $name!='') $request_str = $request_str . '&name=' . $name;
+		if (!is_null($type) && $type!='') $request_str = $request_str . '&type=' . $type;
+
         /*
-        if (!is_null($results) && $results!='') $request_str = $request_str . '&results=' . $results;
+        $curl = curl_init($request_str);
+		
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
-        if ($biographies) $request_str = $request_str . '&bucket=biographies';
-        if ($blogs) $request_str = $request_str . '&bucket=blogs';
-        if ($discovery) $request_str = $request_str . '&bucket=discovery';
-        if ($discovery_rank) $request_str = $request_str . '&bucket=discovery_rank';
-        if ($doc_counts) $request_str = $request_str . '&bucket=doc_counts';
-        if ($familiarity) $request_str = $request_str . '&bucket=familiarity';
-        if ($familiarity_rank) $request_str = $request_str . '&bucket=familiarity_rank';
-        if ($genre) $request_str = $request_str . '&bucket=genre';
-        if ($hotttnesss) $request_str = $request_str . '&bucket=hotttnesss';
-        if ($hotttnesss_rank) $request_str = $request_str . '&bucket=hotttnesss_rank';
-        if ($images) $request_str = $request_str . '&bucket=images';
-        if ($artist_location) $request_str = $request_str . '&bucket=artist_location';
-        if ($news) $request_str = $request_str . '&bucket=news';
-        if ($reviews) $request_str = $request_str . '&bucket=reviews';
-        if ($songs) $request_str = $request_str . '&bucket=songs';
-        if ($urls) $request_str = $request_str . '&bucket=urls';
-        if ($video) $request_str = $request_str . '&bucket=video';
-        if ($years_active) $request_str = $request_str . '&bucket=years_active';*/
+        // Send the request
+        $result = curl_exec($curl);
 
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+		*/
+		
+		//set POST variables
+		$url = 'http://domain.com/get-post.php';
+		$fields = array(
+								'lname' => urlencode($last_name),
+								'fname' => urlencode($first_name),
+								'title' => urlencode($title),
+								'company' => urlencode($institution),
+								'age' => urlencode($age),
+								'email' => urlencode($email),
+								'phone' => urlencode($phone)
+						);
+
+		//url-ify the data for the POST
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
+
+		//open connection
+		$ch = curl_init();
+
+		//set the url, number of POST vars, POST data
+		curl_setopt($ch,CURLOPT_URL, $url);
+		curl_setopt($ch,CURLOPT_POST, count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+		//execute post
+		$result = curl_exec($ch);
+
+		//close connection
+		curl_close($ch);
+
+        $pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function listProfiles()
+    {
+        // Construct request string
+        $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/list?api_key='. $this->apiKey .'&format=json';
+
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+        $pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function getPredictions()
+    {
+		$profile_id = $this->input->post('pred_profile_id');
+	
+		$adventurousness = $this->input->post('pred_adventurousness');
+		$diversity = $this->input->post('pred_diversity');
+		$freshness = $this->input->post('pred_freshness');
+		$mainstreamness = $this->input->post('pred_mainstreamness');
+		$top_years = $this->input->post('pred_top_years');
+		$top_styles = $this->input->post('pred_top_styles');
+	
+        // Construct request string
+        $request_str = 'http://alpha.echonest.com/api/v4/tasteprofile/predict?api_key='. $this->apiKey .'&format=json';
+		
+		if (!is_null($profile_id) && $profile_id!='') $request_str = $request_str . '&id=' . $profile_id;
+		
+		if ($adventurousness) $request_str = $request_str . '&category=adventurousness';
+		if ($diversity) $request_str = $request_str . '&category=diversity';
+		if ($freshness) $request_str = $request_str . '&category=freshness';
+		if ($mainstreamness) $request_str = $request_str . '&category=mainstreamness';
+		if ($top_years) $request_str = $request_str . '&category=top_years';
+		if ($top_styles) $request_str = $request_str . '&category=top_styles';
 
         $curl = curl_init($request_str);
 
