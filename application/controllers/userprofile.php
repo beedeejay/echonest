@@ -25,7 +25,7 @@ class Userprofile extends CI_Controller {
         $type = $this->input->post('create_type');
 
 		//set POST variables
-		$name = str_replace(' ', '%20', $name);
+		//$name = str_replace(' ', '%20', $name);
 		$url = 'http://developer.echonest.com/api/v4/tasteprofile/create';
 		$fields = array(
 								'name' => urlencode($name),

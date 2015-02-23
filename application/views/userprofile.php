@@ -4,11 +4,11 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<td>Create Profile</td>
-					<td>List Profiles</td>
-					<td>Read Profile</td>
-					<td>Delete Profile</td>
-					<td>Get Predictions</td>
+					<td><h3>Create Profile</h3></td>
+					<td><h3>List Profiles</h3></td>
+					<td><h3>Read Profile</h3></td>
+					<td><h3>Delete Profile</h3></td>
+					<td><h3>Get Predictions</h3></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,7 +28,7 @@
 						</form>
 					</td>
 					<td>
-						<form action="<?php echo site_url('userprofile/listprofiles'); ?> " role="form" method="post" accept-charset="utf-8">
+						<form action="<?php echo site_url('userprofile/listProfiles'); ?> " role="form" method="post" accept-charset="utf-8">
 							<div class="form-group" style="visibility:hidden;">
 								<label for="exampleInputEmail1">Taste Profile name</label>
 								<input type="text" class="form-control" id="create_name" name="create_name" placeholder="Greg's rocking moments" value="<?php echo set_value('create_name' ,''); ?>" >
@@ -44,13 +44,13 @@
 					<td>
 						<form action="<?php echo site_url('userprofile/readProfile'); ?> " role="form" method="post" accept-charset="utf-8">
 							<div class="form-group" >
-								<label for="exampleInputEmail1">Read Profile name</label>
-								<input type="text" class="form-control" id="read_profile_id" name="read_profile_id" placeholder="Greg's rocking moments" value="<?php echo set_value('read_profile_id' ,''); ?>" >
+								<label for="exampleInputEmail1">Taste Profile id</label>
+								<input type="text" class="form-control" id="read_profile_id" name="read_profile_id" placeholder="some taste profile id" value="<?php echo set_value('read_profile_id' ,''); ?>" >
 							</div>
-							<div class="form-group" style="visibility:hidden;">
-								<label for="exampleInputPassword1">Taste Profile type</label>
-								<input type="text" class="form-control" id="create_type" name="create_type" placeholder="song, artist, or general" value="<?php echo set_value('create_type' ,'general'); ?>">
-							</div>
+							</br>
+							</br>
+							</br>
+							</br>
 							</br>
 							<button type="submit" class="btn btn-default">Submit</button>
 						</form>
@@ -58,13 +58,13 @@
 					<td>
 						<form action="<?php echo site_url('userprofile/deleteProfile'); ?> " role="form" method="post" accept-charset="utf-8">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Delete Profile name</label>
-								<input type="text" class="form-control" id="profile_id" name="profile_id" placeholder="Greg's rocking moments" value="<?php echo set_value('profile_id' ,''); ?>" >
+								<label for="exampleInputEmail1">Taste Profile id</label>
+								<input type="text" class="form-control" id="del_profile_id" name="del_profile_id" placeholder="some taste profile id" value="<?php echo set_value('del_profile_id' ,''); ?>" >
 							</div>
-							<div class="form-group" style="visibility:hidden;">
-								<label for="exampleInputPassword1" >Taste Profile type</label>
-								<input type="text" class="form-control" id="create_type" name="create_type" placeholder="song, artist, or general" value="<?php echo set_value('create_type' ,'general'); ?>">
-							</div>
+							</br>
+							</br>
+							</br>
+							</br>
 							</br>
 							<button type="submit" class="btn btn-default">Submit</button>
 						</form>
@@ -73,7 +73,7 @@
 						<form action="<?php echo site_url('userprofile/getPredictions'); ?> " role="form" method="post" accept-charset="utf-8">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Get Predictions</label>
-								<input type="text" class="form-control" id="pred_profile_id" name="pred_profile_id" placeholder="Greg's rocking moments" value="<?php echo set_value('pred_profile_id' ,''); ?>" >
+								<input type="text" class="form-control" id="pred_profile_id" name="pred_profile_id" placeholder="some taste profile id" value="<?php echo set_value('pred_profile_id' ,''); ?>" >
 							</div>
 							<table>
 								<tbody>
