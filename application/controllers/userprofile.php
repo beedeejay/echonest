@@ -93,9 +93,40 @@ class Userprofile extends CI_Controller {
         $this->index($data);
     }
 	
+	public function readProfile()
+    {
+		$profile_id = $this->input->post('read_profile_id');
+		
+        // Construct request string
+        $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/read?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&id=' . $profile_id;
+		$request_str = $request_str . '&bucket=item_keyvalues';
+
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+        $pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
 	public function deleteProfile()
     {
-        $profile_id = $this->input->post('profile_id');
+        $profile_id = $this->input->post('del_profile_id');
 		
 		//set POST variables
 		$url = 'http://developer.echonest.com/api/v4/tasteprofile/delete';
