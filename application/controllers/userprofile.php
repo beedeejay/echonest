@@ -28,14 +28,8 @@ class Userprofile extends CI_Controller {
         $name = $this->input->post('create_name');
         $type = $this->input->post('create_type');
 
-        // Construct request string
-        $name = str_replace(' ', '%20', $name);
-        $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/create?api_key='. $this->apiKey .'&format=json';
-
-        if (!is_null($name) && $name!='') $request_str = $request_str . '&name=' . $name;
-		if (!is_null($type) && $type!='') $request_str = $request_str . '&type=' . $type;
-		
 		//set POST variables
+		$name = str_replace(' ', '%20', $name);
 		$url = 'http://developer.echonest.com/api/v4/tasteprofile/create';
 		$fields = array(
 								'name' => urlencode($name),
@@ -101,22 +95,37 @@ class Userprofile extends CI_Controller {
 	
 	public function deleteProfile()
     {
-        // Construct request string
-        $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/list?api_key='. $this->apiKey .'&format=json';
+        $profile_id = $this->input->post('profile_id');
+		
+		//set POST variables
+		$url = 'http://developer.echonest.com/api/v4/tasteprofile/delete';
+		$fields = array(
+								'id' => urlencode($profile_id),
+								'api_key' => urlencode($this->apiKey)
+						);
 
-        $curl = curl_init($request_str);
+		//url-ify the data for the POST
+		$fields_string = '';
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
 
-        // Don't output the result
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		//open connection
+		$curl = curl_init();
 
-        // Send the request
-        $result = curl_exec($curl);
+		//set the url, number of POST vars, POST data
+		curl_setopt($curl,CURLOPT_URL, $url);
+		curl_setopt($curl,CURLOPT_POST, count($fields));
+		curl_setopt($curl,CURLOPT_POSTFIELDS, $fields_string);
+		curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
 
-        // Get info about the cURL Request
+		//execute post
+		$result = curl_exec($curl);
+		
+		//info about the query
         $query_info = curl_getinfo($curl);
 
-        // Free up the resources $curl is using
-        curl_close($curl);
+		//close connection
+		curl_close($curl);
 
         $pretty_result = indent($result);
         $data["curl_result"] = $pretty_result;
