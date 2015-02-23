@@ -1,6 +1,6 @@
 
 
-    <div id="container" style="margin: 100px; background-color: #C0C0C0; padding: 20px;">
+    <div id="container" style="margin-top: 60px; background-color: #C0C0C0; padding: 20px;">
         <form action="<?php echo site_url('artist/searchArtist'); ?> " role="form" method="post" accept-charset="utf-8">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Artist name</label>
