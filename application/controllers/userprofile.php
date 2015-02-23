@@ -13,10 +13,6 @@ class Userprofile extends CI_Controller {
         $datar['upal'] = 'active';
         $this->load->view('header',$datar);
 
-        $data['createprofile'] = $this->createprofile();
-        $data['listprofile'] = $this->listprofile();
-        $data['getPredictions'] = $this->getPredictions();
-
         $this->load->view('userprofile', $data);
     }
 
@@ -61,6 +57,8 @@ class Userprofile extends CI_Controller {
 		curl_close($curl);
 
         $pretty_result = indent($result);
+        //$cp_array = array('pretty_resutl' => $pretty_result, "query_info" => $query_info);
+
         $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
@@ -87,6 +85,7 @@ class Userprofile extends CI_Controller {
         curl_close($curl);
 
         $pretty_result = indent($result);
+
         $data["curl_result"] = $pretty_result;
         $data["query_info"] = $query_info;
 
@@ -163,6 +162,7 @@ class Userprofile extends CI_Controller {
         $data["query_info"] = $query_info;
 
         $this->index($data);
+
     }
 	
 	public function getPredictions()

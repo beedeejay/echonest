@@ -18,6 +18,10 @@
             margin: 40px;
             font: 13px/20px normal Helvetica, Arial, sans-serif;
             color: #4F5155;
+
+        }
+        .form-group {
+            padding-right: 50px;
         }
     </style>
 </head>
@@ -29,7 +33,7 @@
         <ul class="nav navbar-nav">
             <li class="<?php echo (isset($sal)) ?  $sal : 's'; ?>"><a href="<?php echo site_url('song/searchsong');?>">Song <span class="sr-only">(current)</span></a></li>
             <li class="<?php echo (isset($aal)) ?  $aal : 's'; ?>"><a href="<?php echo site_url('artist/searchartist');?>">Artist</a></li>
-            <li class="<?php echo (isset($upal)) ?  $upal : 's'; ?>"><a href="<?php echo site_url('userprofile/tasteprofile');?>">Taste Profile</a></li>
+            <li class="<?php echo (isset($upal)) ?  $upal : 's'; ?>"><a href="<?php echo site_url('userprofile');?>">Taste Profile</a></li>
         </ul>
     </div>
 </nav>
