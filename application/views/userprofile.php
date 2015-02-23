@@ -6,7 +6,7 @@
 				<tr>
 					<td>Create Profile</td>
 					<td>List Profiles</td>
-					<td>Read Profiles</td>
+					<td>Read Profile</td>
 					<td>Delete Profile</td>
 					<td>Get Predictions</td>
 				</tr>
