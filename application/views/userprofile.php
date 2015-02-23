@@ -1,11 +1,12 @@
 
 
-    <div id="container" style="margin: 100px; background-color: #C0C0C0; padding: 20px;">
+    <div id="" style="margin-top: 60px; background-color: #C0C0C0; padding: 20px;">
 		<table class="table">
 			<thead>
 				<tr>
 					<td>Create Profile</td>
 					<td>List Profiles</td>
+					<td>Read Profiles</td>
 					<td>Delete Profile</td>
 					<td>Get Predictions</td>
 				</tr>
@@ -31,6 +32,20 @@
 							<div class="form-group" style="visibility:hidden;">
 								<label for="exampleInputEmail1">Taste Profile name</label>
 								<input type="text" class="form-control" id="create_name" name="create_name" placeholder="Greg's rocking moments" value="<?php echo set_value('create_name' ,''); ?>" >
+							</div>
+							<div class="form-group" style="visibility:hidden;">
+								<label for="exampleInputPassword1">Taste Profile type</label>
+								<input type="text" class="form-control" id="create_type" name="create_type" placeholder="song, artist, or general" value="<?php echo set_value('create_type' ,'general'); ?>">
+							</div>
+							</br>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</td>
+					<td>
+						<form action="<?php echo site_url('userprofile/readProfiles'); ?> " role="form" method="post" accept-charset="utf-8">
+							<div class="form-group" >
+								<label for="exampleInputEmail1">Read Profile name</label>
+								<input type="text" class="form-control" id="read_profile_id" name="read_profile_id" placeholder="Greg's rocking moments" value="<?php echo set_value('read_profile_id' ,''); ?>" >
 							</div>
 							<div class="form-group" style="visibility:hidden;">
 								<label for="exampleInputPassword1">Taste Profile type</label>
