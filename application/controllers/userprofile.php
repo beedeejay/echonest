@@ -12,6 +12,11 @@ class Userprofile extends CI_Controller {
     public function index($data=null) {
         $datar['upal'] = 'active';
         $this->load->view('header',$datar);
+
+        $data['createprofile'] = $this->createprofile();
+        $data['listprofile'] = $this->listprofile();
+        $data['getPredictions'] = $this->getPredictions();
+
         $this->load->view('userprofile', $data);
     }
 
