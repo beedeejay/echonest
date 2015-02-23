@@ -42,7 +42,7 @@
 						</form>
 					</td>
 					<td>
-						<form action="<?php echo site_url('userprofile/readProfiles'); ?> " role="form" method="post" accept-charset="utf-8">
+						<form action="<?php echo site_url('userprofile/readProfile'); ?> " role="form" method="post" accept-charset="utf-8">
 							<div class="form-group" >
 								<label for="exampleInputEmail1">Read Profile name</label>
 								<input type="text" class="form-control" id="read_profile_id" name="read_profile_id" placeholder="Greg's rocking moments" value="<?php echo set_value('read_profile_id' ,''); ?>" >
@@ -132,7 +132,7 @@
                 <legend> Http Query:</legend>
                 <?php
 
-                if (isset($cp_array['query_info'])) {
+                if (isset($query_info)) {
                     print_r($query_info);
                 }
                 ?>

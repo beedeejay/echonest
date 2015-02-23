@@ -58,46 +58,26 @@
       <file leaf-file-name="userprofile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/userprofile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-60.0" vertical-offset="0" max-vertical-offset="3255">
-              <caret line="96" column="57" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="57" />
+            <state vertical-scroll-proportion="-127.5" vertical-offset="0" max-vertical-offset="3270">
+              <caret line="204" column="9" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userprofile.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userprofile.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/userprofile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.375" vertical-offset="0" max-vertical-offset="2415">
-              <caret line="47" column="197" selection-start-line="47" selection-start-column="197" selection-end-line="47" selection-end-column="197" />
+            <state vertical-scroll-proportion="0.46061644" vertical-offset="1741" max-vertical-offset="2415">
+              <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#form#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#form#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1424688920000" expanded="true" signature="6519:6740" placeholder="..." />
+                <marker date="1424689747000" expanded="true" signature="6506:6727" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="song.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/song.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="2220">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="artist.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/artist.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.051369864" vertical-offset="0" max-vertical-offset="2445">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -117,10 +97,10 @@
         <option value="$PROJECT_DIR$/application/controllers/song.php" />
         <option value="$PROJECT_DIR$/application/controllers/artist.php" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
-        <option value="$PROJECT_DIR$/application/controllers/userprofile.php" />
-        <option value="$PROJECT_DIR$/application/views/userprofile.php" />
         <option value="$PROJECT_DIR$/application/views/song.php" />
         <option value="$PROJECT_DIR$/application/views/artist.php" />
+        <option value="$PROJECT_DIR$/application/controllers/userprofile.php" />
+        <option value="$PROJECT_DIR$/application/views/userprofile.php" />
       </list>
     </option>
   </component>
@@ -448,29 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/userprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-60.0" vertical-offset="0" max-vertical-offset="3255">
-          <caret line="96" column="57" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/userprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.375" vertical-offset="0" max-vertical-offset="2415">
-          <caret line="47" column="197" selection-start-line="47" selection-start-column="197" selection-end-line="47" selection-end-column="197" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1424688920000" expanded="true" signature="6519:6740" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/song.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="2220">
@@ -484,6 +441,29 @@
         <state vertical-scroll-proportion="0.051369864" vertical-offset="0" max-vertical-offset="2445">
           <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/userprofile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-127.5" vertical-offset="0" max-vertical-offset="3270">
+          <caret line="204" column="9" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/userprofile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46061644" vertical-offset="1741" max-vertical-offset="2415">
+          <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1424689747000" expanded="true" signature="6506:6727" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
