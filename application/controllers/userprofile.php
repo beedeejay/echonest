@@ -29,10 +29,52 @@ class Userprofile extends CI_Controller {
 
         if (!is_null($name) && $name!='') $request_str = $request_str . '&name=' . $name;
 		if (!is_null($type) && $type!='') $request_str = $request_str . '&type=' . $type;
-
-        /*
-        $curl = curl_init($request_str);
 		
+		//set POST variables
+		$url = 'http://developer.echonest.com/api/v4/tasteprofile/create';
+		$fields = array(
+								'name' => urlencode($name),
+								'type' => urlencode($type),
+								'api_key' => urlencode($this->apiKey)
+						);
+
+		//url-ify the data for the POST
+		$fields_string = '';
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
+
+		//open connection
+		$curl = curl_init();
+
+		//set the url, number of POST vars, POST data
+		curl_setopt($curl,CURLOPT_URL, $url);
+		curl_setopt($curl,CURLOPT_POST, count($fields));
+		curl_setopt($curl,CURLOPT_POSTFIELDS, $fields_string);
+		curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
+
+		//execute post
+		$result = curl_exec($curl);
+		
+		//info about the query
+        $query_info = curl_getinfo($curl);
+
+		//close connection
+		curl_close($curl);
+
+        $pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function listProfiles()
+    {
+        // Construct request string
+        $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/list?api_key='. $this->apiKey .'&format=json';
+
+        $curl = curl_init($request_str);
+
         // Don't output the result
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
@@ -44,37 +86,6 @@ class Userprofile extends CI_Controller {
 
         // Free up the resources $curl is using
         curl_close($curl);
-		*/
-		
-		//set POST variables
-		$url = 'http://domain.com/get-post.php';
-		$fields = array(
-								'lname' => urlencode($last_name),
-								'fname' => urlencode($first_name),
-								'title' => urlencode($title),
-								'company' => urlencode($institution),
-								'age' => urlencode($age),
-								'email' => urlencode($email),
-								'phone' => urlencode($phone)
-						);
-
-		//url-ify the data for the POST
-		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-		rtrim($fields_string, '&');
-
-		//open connection
-		$ch = curl_init();
-
-		//set the url, number of POST vars, POST data
-		curl_setopt($ch,CURLOPT_URL, $url);
-		curl_setopt($ch,CURLOPT_POST, count($fields));
-		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-
-		//execute post
-		$result = curl_exec($ch);
-
-		//close connection
-		curl_close($ch);
 
         $pretty_result = indent($result);
         $data["curl_result"] = $pretty_result;
@@ -83,7 +94,7 @@ class Userprofile extends CI_Controller {
         $this->index($data);
     }
 	
-	public function listProfiles()
+	public function deleteProfile()
     {
         // Construct request string
         $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/list?api_key='. $this->apiKey .'&format=json';
