@@ -124,8 +124,7 @@
         .range input[type="range"] {
             outline: none;
         }
-
-        .range.range-primary input[type="range"]::-webkit-slider-thumb {
+        .range.range-primary, .range-primary1 , .range-primary2, .range-primary3 input[type="range"]::-webkit-slider-thumb {
             background-color: rgb(66, 139, 202);
         }
         .range.range-primary input[type="range"]::-moz-slider-thumb {
@@ -137,21 +136,6 @@
         .range.range-primary input[type="range"] {
             outline-color: rgb(66, 139, 202);
         }
-
-
-        .range.range-info input[type="range"]::-webkit-slider-thumb {
-            background-color: rgb(91, 192, 222);
-        }
-        .range.range-info input[type="range"]::-moz-slider-thumb {
-            background-color: rgb(91, 192, 222);
-        }
-        .range.range-info output {
-            background-color: rgb(91, 192, 222);
-        }
-        .range.range-info input[type="range"] {
-            outline-color: rgb(91, 192, 222);
-        }
-
 
     </style>
     <script>
