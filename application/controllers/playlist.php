@@ -87,7 +87,7 @@ class Playlist extends CI_Controller {
 		
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/next?api_key='. $this->apiKey .'&format=json';
-		
+	
 		$request_str = $request_str . '&session_id=' . $session_id;
 		
         $curl = curl_init($request_str);
@@ -118,6 +118,7 @@ class Playlist extends CI_Controller {
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
 		
+		$request_str = $request_str . '&session_id=' . $session_id;
 		$request_str = $request_str . '&skip_song=last';
 		
         $curl = curl_init($request_str);
@@ -148,6 +149,7 @@ class Playlist extends CI_Controller {
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
 		
+		$request_str = $request_str . '&session_id=' . $session_id;
 		$request_str = $request_str . '&ban_song=last';
 		
         $curl = curl_init($request_str);
@@ -178,6 +180,7 @@ class Playlist extends CI_Controller {
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
 		
+		$request_str = $request_str . '&session_id=' . $session_id;
 		$request_str = $request_str . '&favorite_song=last';
 		
         $curl = curl_init($request_str);
@@ -208,6 +211,7 @@ class Playlist extends CI_Controller {
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
 		
+		$request_str = $request_str . '&session_id=' . $session_id;
 		$request_str = $request_str . '&favorite_artist=last';
 		
         $curl = curl_init($request_str);
@@ -238,6 +242,7 @@ class Playlist extends CI_Controller {
 		// Construct request string
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
 		
+		$request_str = $request_str . '&session_id=' . $session_id;
 		$request_str = $request_str . '&ban_artist=last';
 		
         $curl = curl_init($request_str);

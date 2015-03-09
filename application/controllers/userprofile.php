@@ -96,12 +96,14 @@ class Userprofile extends CI_Controller {
     {
 		$profile_id = $this->input->post('read_profile_id');
 		$audio_summary = FALSE;
+		$genre = FALSE;
 		
         // Construct request string
         $request_str = 'http://developer.echonest.com/api/v4/tasteprofile/read?api_key='. $this->apiKey .'&format=json';
 		
 		$request_str = $request_str . '&id=' . $profile_id;
 		if ($audio_summary) $request_str = $request_str . '&bucket=audio_summary';
+		if ($genre) $request_str = $request_str . '&bucket=genre';
 
         $curl = curl_init($request_str);
 
