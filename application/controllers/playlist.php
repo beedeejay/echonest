@@ -42,7 +42,7 @@ class Playlist extends CI_Controller {
 		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/create?api_key='. $this->apiKey .'&format=json';
 		
 		$request_str = $request_str . '&type=' . $type;
-		if (!is_null($seed_catalog) && $seed_catalog!='') $request_str = $request_str . '&seed_catalog=' . $seed_catalog;
+		if (!is_null($seed_catalog) && $seed_catalog!='') $request_str = $request_str . '&seed_catalog=' . $seed_catalog . '&session_catalog=' . $seed_catalog;
 		
 		if (!is_null($genre) && $genre!='') $request_str = $request_str . '&genre=' . $genre;
 		if (!is_null($artist) && $artist!='') $request_str = $request_str . '&artist=' . $artist;
@@ -80,4 +80,185 @@ class Playlist extends CI_Controller {
 
         $this->index($data);
     }
+	
+	public function nextSongPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/next?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&session_id=' . $session_id;
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function skipSongPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&skip_song=last';
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function banSongPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&ban_song=last';
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function favSongPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&favorite_song=last';
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function favArtistPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&favorite_artist=last';
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
+	public function banArtistPlaylist()
+    {
+		$session_id = $this->input->post('session_id');
+		
+		// Construct request string
+		$request_str = 'http://developer.echonest.com/api/v4/playlist/dynamic/feedback?api_key='. $this->apiKey .'&format=json';
+		
+		$request_str = $request_str . '&ban_artist=last';
+		
+        $curl = curl_init($request_str);
+
+        // Don't output the result
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        // Send the request
+        $result = curl_exec($curl);
+
+        // Get info about the cURL Request
+        $query_info = curl_getinfo($curl);
+
+        // Free up the resources $curl is using
+        curl_close($curl);
+
+		$pretty_result = indent($result);
+        $data["curl_result"] = $pretty_result;
+        $data["query_info"] = $query_info;
+
+        $this->index($data);
+    }
+	
 }
